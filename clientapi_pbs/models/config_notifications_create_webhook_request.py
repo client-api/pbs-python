@@ -136,8 +136,22 @@ class ConfigNotificationsCreateWebhookRequest(BaseModel):
         _dict = self.model_dump(
             by_alias=True,
             exclude=excluded_fields,
+            # `exclude_unset` keeps schema defaults out of the wire payload
+            # when the user constructed the model directly (e.g.
+            # `Req(vmid=100)` would otherwise pull in
+            # `cores=1, cpulimit=0, …` from the spec defaults and PVE
+            # rejects the request with 400 because it never set those).
+            # `exclude_none` keeps None values out of the wire payload —
+            # both for direct construction (None means "unset") and for
+            # the from_dict path (where unspecified obj keys become
+            # `obj.get("k") == None` but show up in `model_fields_set`).
+            exclude_unset=True,
             exclude_none=True,
         )
+        
+        
+        
+        
         # override the default output from pydantic by calling `to_dict()` of each item in header (list)
         _items = []
         if self.header:
@@ -145,6 +159,10 @@ class ConfigNotificationsCreateWebhookRequest(BaseModel):
                 if _item_header:
                     _items.append(_item_header.to_dict())
             _dict['header'] = _items
+        
+        
+        
+        
         # override the default output from pydantic by calling `to_dict()` of each item in secret (list)
         _items = []
         if self.secret:
@@ -152,11 +170,23 @@ class ConfigNotificationsCreateWebhookRequest(BaseModel):
                 if _item_secret:
                     _items.append(_item_secret.to_dict())
             _dict['secret'] = _items
+        
+        
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return _dict
 
     @classmethod

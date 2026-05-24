@@ -99,8 +99,20 @@ class NodesAptGetRepositoriesResponseData(BaseModel):
         _dict = self.model_dump(
             by_alias=True,
             exclude=excluded_fields,
+            # `exclude_unset` keeps schema defaults out of the wire payload
+            # when the user constructed the model directly (e.g.
+            # `Req(vmid=100)` would otherwise pull in
+            # `cores=1, cpulimit=0, …` from the spec defaults and PVE
+            # rejects the request with 400 because it never set those).
+            # `exclude_none` keeps None values out of the wire payload —
+            # both for direct construction (None means "unset") and for
+            # the from_dict path (where unspecified obj keys become
+            # `obj.get("k") == None` but show up in `model_fields_set`).
+            exclude_unset=True,
             exclude_none=True,
         )
+        
+        
         # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
         _items = []
         if self.errors:
@@ -108,6 +120,7 @@ class NodesAptGetRepositoriesResponseData(BaseModel):
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
             _dict['errors'] = _items
+        
         # override the default output from pydantic by calling `to_dict()` of each item in files (list)
         _items = []
         if self.files:
@@ -115,6 +128,7 @@ class NodesAptGetRepositoriesResponseData(BaseModel):
                 if _item_files:
                     _items.append(_item_files.to_dict())
             _dict['files'] = _items
+        
         # override the default output from pydantic by calling `to_dict()` of each item in infos (list)
         _items = []
         if self.infos:
@@ -122,6 +136,7 @@ class NodesAptGetRepositoriesResponseData(BaseModel):
                 if _item_infos:
                     _items.append(_item_infos.to_dict())
             _dict['infos'] = _items
+        
         # override the default output from pydantic by calling `to_dict()` of each item in standard_repos (list)
         _items = []
         if self.standard_repos:
@@ -129,6 +144,13 @@ class NodesAptGetRepositoriesResponseData(BaseModel):
                 if _item_standard_repos:
                     _items.append(_item_standard_repos.to_dict())
             _dict['standard-repos'] = _items
+        
+        
+        
+        
+        
+        
+        
         return _dict
 
     @classmethod

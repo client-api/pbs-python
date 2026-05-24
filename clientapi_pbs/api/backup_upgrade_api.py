@@ -318,9 +318,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -616,9 +620,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -914,9 +922,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -1212,9 +1224,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -1779,9 +1795,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -2077,9 +2097,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -2375,9 +2399,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -3766,9 +3794,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
@@ -4064,9 +4096,13 @@ class BackupUpgradeApi:
             )
 
         # set the HTTP header `Content-Type`
+        # Only emit Content-Type when there's actually a body/form/file to send.
+        # PVE/PMG Perl HTTP server rejects empty bodies with Content-Type:
+        # application/json ("malformed JSON string"); other Proxmox products are
+        # equally fussy. An explicit `_content_type` override always wins.
         if _content_type:
             _header_params['Content-Type'] = _content_type
-        else:
+        elif _body_params is not None or _form_params or _files:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [

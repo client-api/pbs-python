@@ -154,26 +154,66 @@ class NodesConfigGetConfigResponseData(BaseModel):
         _dict = self.model_dump(
             by_alias=True,
             exclude=excluded_fields,
+            # `exclude_unset` keeps schema defaults out of the wire payload
+            # when the user constructed the model directly (e.g.
+            # `Req(vmid=100)` would otherwise pull in
+            # `cores=1, cpulimit=0, …` from the spec defaults and PVE
+            # rejects the request with 400 because it never set those).
+            # `exclude_none` keeps None values out of the wire payload —
+            # both for direct construction (None means "unset") and for
+            # the from_dict path (where unspecified obj keys become
+            # `obj.get("k") == None` but show up in `model_fields_set`).
+            exclude_unset=True,
             exclude_none=True,
         )
+        
         # override the default output from pydantic by calling `to_dict()` of acme
         if self.acme:
             _dict['acme'] = self.acme.to_dict()
+        
         # override the default output from pydantic by calling `to_dict()` of acmedomain0
         if self.acmedomain0:
             _dict['acmedomain0'] = self.acmedomain0.to_dict()
+        
         # override the default output from pydantic by calling `to_dict()` of acmedomain1
         if self.acmedomain1:
             _dict['acmedomain1'] = self.acmedomain1.to_dict()
+        
         # override the default output from pydantic by calling `to_dict()` of acmedomain2
         if self.acmedomain2:
             _dict['acmedomain2'] = self.acmedomain2.to_dict()
+        
         # override the default output from pydantic by calling `to_dict()` of acmedomain3
         if self.acmedomain3:
             _dict['acmedomain3'] = self.acmedomain3.to_dict()
+        
         # override the default output from pydantic by calling `to_dict()` of acmedomain4
         if self.acmedomain4:
             _dict['acmedomain4'] = self.acmedomain4.to_dict()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return _dict
 
     @classmethod

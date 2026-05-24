@@ -136,8 +136,21 @@ class TapeCreateRestoreRequest(BaseModel):
         _dict = self.model_dump(
             by_alias=True,
             exclude=excluded_fields,
+            # `exclude_unset` keeps schema defaults out of the wire payload
+            # when the user constructed the model directly (e.g.
+            # `Req(vmid=100)` would otherwise pull in
+            # `cores=1, cpulimit=0, …` from the spec defaults and PVE
+            # rejects the request with 400 because it never set those).
+            # `exclude_none` keeps None values out of the wire payload —
+            # both for direct construction (None means "unset") and for
+            # the from_dict path (where unspecified obj keys become
+            # `obj.get("k") == None` but show up in `model_fields_set`).
+            exclude_unset=True,
             exclude_none=True,
         )
+        
+        
+        
         # override the default output from pydantic by calling `to_dict()` of each item in namespaces (list)
         _items = []
         if self.namespaces:
@@ -145,14 +158,29 @@ class TapeCreateRestoreRequest(BaseModel):
                 if _item_namespaces:
                     _items.append(_item_namespaces.to_dict())
             _dict['namespaces'] = _items
+        
+        
+        
+        
+        
         # override the default output from pydantic by calling `to_dict()` of store
         if self.store:
             _dict['store'] = self.store.to_dict()
+        
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return _dict
 
     @classmethod
