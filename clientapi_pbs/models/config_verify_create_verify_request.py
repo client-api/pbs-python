@@ -33,7 +33,7 @@ class ConfigVerifyCreateVerifyRequest(BaseModel):
 
     id: Annotated[str, Field(min_length=3, strict=True, max_length=32)] = Field(description="Job ID.")
 
-    ignore_verified: Optional[StrictBool] = Field(default=False, description="Do not verify backups that are already verified if their verification is not outdated.", alias="ignore-verified")
+    ignore_verified: Optional[StrictBool] = Field(default=True, description="Do not verify backups that are already verified if their verification is not outdated.", alias="ignore-verified")
 
     max_depth: Optional[Annotated[int, Field(le=7, strict=True, ge=0)]] = Field(default=7, description="How many levels of namespaces should be operated on (0 == no recursion)", alias="max-depth")
 
@@ -162,7 +162,7 @@ class ConfigVerifyCreateVerifyRequest(BaseModel):
         _obj = cls.model_validate({
             "comment": obj.get("comment"),
             "id": obj.get("id"),
-            "ignore-verified": obj.get("ignore-verified") if obj.get("ignore-verified") is not None else False,
+            "ignore-verified": obj.get("ignore-verified") if obj.get("ignore-verified") is not None else True,
             "max-depth": obj.get("max-depth") if obj.get("max-depth") is not None else 7,
             "ns": obj.get("ns"),
             "outdated-after": obj.get("outdated-after"),

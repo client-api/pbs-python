@@ -29,11 +29,11 @@ class AdminDatastoreCreateMoveNamespaceRequest(BaseModel):
     AdminDatastoreCreateMoveNamespaceRequest
     """ # noqa: E501
 
-    delete_source: Optional[StrictBool] = Field(default=False, description="Remove the source namespace after moving all contents. Defaults to true.", alias="delete-source")
+    delete_source: Optional[StrictBool] = Field(default=True, description="Remove the source namespace after moving all contents. Defaults to true.", alias="delete-source")
 
     max_depth: Optional[Annotated[int, Field(le=7, strict=True, ge=0)]] = Field(default=7, description="How many levels of namespaces should be operated on (0 == no recursion)", alias="max-depth")
 
-    merge_groups: Optional[StrictBool] = Field(default=False, description="If a group with the same name already exists in the target namespace, merge snapshots into it. Requires matching ownership and non-overlapping snapshot times.", alias="merge-groups")
+    merge_groups: Optional[StrictBool] = Field(default=True, description="If a group with the same name already exists in the target namespace, merge snapshots into it. Requires matching ownership and non-overlapping snapshot times.", alias="merge-groups")
 
     ns: Annotated[str, Field(strict=True, max_length=256)] = Field(description="Namespace.")
 
@@ -119,9 +119,9 @@ class AdminDatastoreCreateMoveNamespaceRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "delete-source": obj.get("delete-source") if obj.get("delete-source") is not None else False,
+            "delete-source": obj.get("delete-source") if obj.get("delete-source") is not None else True,
             "max-depth": obj.get("max-depth") if obj.get("max-depth") is not None else 7,
-            "merge-groups": obj.get("merge-groups") if obj.get("merge-groups") is not None else False,
+            "merge-groups": obj.get("merge-groups") if obj.get("merge-groups") is not None else True,
             "ns": obj.get("ns"),
             "target-ns": obj.get("target-ns")
         })

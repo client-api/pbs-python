@@ -33,7 +33,7 @@ class AccessUsersCreateTokenRequest(BaseModel):
 
     digest: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Prevent changes if current configuration file has different SHA256 digest. This can be used to prevent concurrent modifications.")
 
-    enable: Optional[StrictBool] = Field(default=False, description="Enable the account (default). You can set this to '0' to disable the account.")
+    enable: Optional[StrictBool] = Field(default=True, description="Enable the account (default). You can set this to '0' to disable the account.")
 
     expire: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=0, description="Account expiration date (seconds since epoch). '0' means no expiration date.")
 
@@ -124,7 +124,7 @@ class AccessUsersCreateTokenRequest(BaseModel):
         _obj = cls.model_validate({
             "comment": obj.get("comment"),
             "digest": obj.get("digest"),
-            "enable": obj.get("enable") if obj.get("enable") is not None else False,
+            "enable": obj.get("enable") if obj.get("enable") is not None else True,
             "expire": obj.get("expire") if obj.get("expire") is not None else 0
         })
         return _obj

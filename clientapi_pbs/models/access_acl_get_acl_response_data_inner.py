@@ -112,7 +112,7 @@ class AccessAclGetAclResponseDataInner(BaseModel):
 
         _obj = cls.model_validate({
             "path": obj.get("path"),
-            "propagate": obj.get("propagate") if obj.get("propagate") is not None else False,
+            "propagate": obj.get("propagate") if obj.get("propagate") is not None else True,
             "roleid": obj.get("roleid"),
             "ugid": obj.get("ugid"),
             "ugid_type": obj.get("ugid_type")

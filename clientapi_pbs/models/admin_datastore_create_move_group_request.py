@@ -34,7 +34,7 @@ class AdminDatastoreCreateMoveGroupRequest(BaseModel):
 
     backup_type: PbsBackupTypeEnum = Field(description="Backup types.", alias="backup-type")
 
-    merge_group: Optional[StrictBool] = Field(default=False, description="If the group already exists in the target namespace, merge snapshots into it. Requires matching ownership and non-overlapping snapshot times.", alias="merge-group")
+    merge_group: Optional[StrictBool] = Field(default=True, description="If the group already exists in the target namespace, merge snapshots into it. Requires matching ownership and non-overlapping snapshot times.", alias="merge-group")
 
     ns: Optional[Annotated[str, Field(strict=True, max_length=256)]] = Field(default=None, description="Namespace.")
 
@@ -138,7 +138,7 @@ class AdminDatastoreCreateMoveGroupRequest(BaseModel):
         _obj = cls.model_validate({
             "backup-id": obj.get("backup-id"),
             "backup-type": obj.get("backup-type"),
-            "merge-group": obj.get("merge-group") if obj.get("merge-group") is not None else False,
+            "merge-group": obj.get("merge-group") if obj.get("merge-group") is not None else True,
             "ns": obj.get("ns"),
             "target-ns": obj.get("target-ns")
         })

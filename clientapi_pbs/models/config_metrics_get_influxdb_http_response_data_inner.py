@@ -33,7 +33,7 @@ class ConfigMetricsGetInfluxdbHttpResponseDataInner(BaseModel):
 
     comment: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="Comment.")
 
-    enable: Optional[StrictBool] = Field(default=False, description="Enables or disables the metrics server")
+    enable: Optional[StrictBool] = Field(default=True, description="Enables or disables the metrics server")
 
     max_body_size: Optional[StrictInt] = Field(default=25000000, description="The (optional) maximum body size", alias="max-body-size")
 
@@ -45,7 +45,7 @@ class ConfigMetricsGetInfluxdbHttpResponseDataInner(BaseModel):
 
     url: Annotated[str, Field(strict=True)] = Field(description="HTTP(s) url with optional port.")
 
-    verify_tls: Optional[StrictBool] = Field(default=False, description="If true, the certificate will be validated.", alias="verify-tls")
+    verify_tls: Optional[StrictBool] = Field(default=True, description="If true, the certificate will be validated.", alias="verify-tls")
 
     __properties: ClassVar[List[str]] = ["bucket", "comment", "enable", "max-body-size", "name", "organization", "token", "url", "verify-tls"]
 
@@ -146,13 +146,13 @@ class ConfigMetricsGetInfluxdbHttpResponseDataInner(BaseModel):
         _obj = cls.model_validate({
             "bucket": obj.get("bucket") if obj.get("bucket") is not None else 'proxmox',
             "comment": obj.get("comment"),
-            "enable": obj.get("enable") if obj.get("enable") is not None else False,
+            "enable": obj.get("enable") if obj.get("enable") is not None else True,
             "max-body-size": obj.get("max-body-size") if obj.get("max-body-size") is not None else 25000000,
             "name": obj.get("name"),
             "organization": obj.get("organization") if obj.get("organization") is not None else 'proxmox',
             "token": obj.get("token"),
             "url": obj.get("url"),
-            "verify-tls": obj.get("verify-tls") if obj.get("verify-tls") is not None else False
+            "verify-tls": obj.get("verify-tls") if obj.get("verify-tls") is not None else True
         })
         return _obj
 

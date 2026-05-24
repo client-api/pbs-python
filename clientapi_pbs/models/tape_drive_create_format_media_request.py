@@ -29,7 +29,7 @@ class TapeDriveCreateFormatMediaRequest(BaseModel):
     TapeDriveCreateFormatMediaRequest
     """ # noqa: E501
 
-    fast: Optional[StrictBool] = Field(default=False, description="Use fast erase.")
+    fast: Optional[StrictBool] = Field(default=True, description="Use fast erase.")
 
     label_text: Optional[Annotated[str, Field(min_length=2, strict=True, max_length=32)]] = Field(default=None, description="Media Label/Barcode.", alias="label-text")
 
@@ -103,7 +103,7 @@ class TapeDriveCreateFormatMediaRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fast": obj.get("fast") if obj.get("fast") is not None else False,
+            "fast": obj.get("fast") if obj.get("fast") is not None else True,
             "label-text": obj.get("label-text")
         })
         return _obj

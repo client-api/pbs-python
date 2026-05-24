@@ -40,7 +40,7 @@ class AccessAclUpdateAclRequest(BaseModel):
 
     path: Annotated[str, Field(min_length=1, strict=True, max_length=128)] = Field(description="Access control path.")
 
-    propagate: Optional[StrictBool] = Field(default=False, description="Allow to propagate (inherit) permissions.")
+    propagate: Optional[StrictBool] = Field(default=True, description="Allow to propagate (inherit) permissions.")
 
     role: PbsRoleidEnum = Field(description="Enum representing roles via their [PRIVILEGES] combination.  Since privileges are implemented as bitflags, each unique combination of privileges maps to a single, unique `u64` value that is used in this enum definition.")
 
@@ -160,7 +160,7 @@ class AccessAclUpdateAclRequest(BaseModel):
             "digest": obj.get("digest"),
             "group": obj.get("group"),
             "path": obj.get("path"),
-            "propagate": obj.get("propagate") if obj.get("propagate") is not None else False,
+            "propagate": obj.get("propagate") if obj.get("propagate") is not None else True,
             "role": obj.get("role")
         })
         return _obj

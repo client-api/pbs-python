@@ -36,7 +36,7 @@ class ConfigMetricsUpdateInfluxdbUdpRequest(BaseModel):
 
     digest: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Prevent changes if current configuration file has different SHA256 digest. This can be used to prevent concurrent modifications.")
 
-    enable: Optional[StrictBool] = Field(default=False, description="Enables or disables the metrics server")
+    enable: Optional[StrictBool] = Field(default=True, description="Enables or disables the metrics server")
 
     host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="host:port combination (Host can be DNS name or IP address).")
 
@@ -145,7 +145,7 @@ class ConfigMetricsUpdateInfluxdbUdpRequest(BaseModel):
             "comment": obj.get("comment"),
             "delete": obj.get("delete"),
             "digest": obj.get("digest"),
-            "enable": obj.get("enable") if obj.get("enable") is not None else False,
+            "enable": obj.get("enable") if obj.get("enable") is not None else True,
             "host": obj.get("host"),
             "mtu": obj.get("mtu") if obj.get("mtu") is not None else 1500
         })

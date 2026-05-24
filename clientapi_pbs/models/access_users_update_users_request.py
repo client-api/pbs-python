@@ -38,7 +38,7 @@ class AccessUsersUpdateUsersRequest(BaseModel):
 
     email: Optional[Annotated[str, Field(min_length=2, strict=True, max_length=64)]] = Field(default=None, description="E-Mail Address.")
 
-    enable: Optional[StrictBool] = Field(default=False, description="Enable the account (default). You can set this to '0' to disable the account.")
+    enable: Optional[StrictBool] = Field(default=True, description="Enable the account (default). You can set this to '0' to disable the account.")
 
     expire: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=0, description="Account expiration date (seconds since epoch). '0' means no expiration date.")
 
@@ -194,7 +194,7 @@ class AccessUsersUpdateUsersRequest(BaseModel):
             "delete": obj.get("delete"),
             "digest": obj.get("digest"),
             "email": obj.get("email"),
-            "enable": obj.get("enable") if obj.get("enable") is not None else False,
+            "enable": obj.get("enable") if obj.get("enable") is not None else True,
             "expire": obj.get("expire") if obj.get("expire") is not None else 0,
             "firstname": obj.get("firstname"),
             "lastname": obj.get("lastname"),

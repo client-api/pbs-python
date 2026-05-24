@@ -31,7 +31,7 @@ class ConfigMetricsCreateInfluxdbUdpRequest(BaseModel):
 
     comment: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="Comment.")
 
-    enable: Optional[StrictBool] = Field(default=False, description="Enables or disables the metrics server")
+    enable: Optional[StrictBool] = Field(default=True, description="Enables or disables the metrics server")
 
     host: Annotated[str, Field(strict=True)] = Field(description="host:port combination (Host can be DNS name or IP address).")
 
@@ -133,7 +133,7 @@ class ConfigMetricsCreateInfluxdbUdpRequest(BaseModel):
 
         _obj = cls.model_validate({
             "comment": obj.get("comment"),
-            "enable": obj.get("enable") if obj.get("enable") is not None else False,
+            "enable": obj.get("enable") if obj.get("enable") is not None else True,
             "host": obj.get("host"),
             "mtu": obj.get("mtu") if obj.get("mtu") is not None else 1500,
             "name": obj.get("name")

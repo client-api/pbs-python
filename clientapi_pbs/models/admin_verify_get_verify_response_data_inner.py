@@ -33,7 +33,7 @@ class AdminVerifyGetVerifyResponseDataInner(BaseModel):
 
     id: Annotated[str, Field(min_length=3, strict=True, max_length=32)] = Field(description="Job ID.")
 
-    ignore_verified: Optional[StrictBool] = Field(default=False, description="Do not verify backups that are already verified if their verification is not outdated.", alias="ignore-verified")
+    ignore_verified: Optional[StrictBool] = Field(default=True, description="Do not verify backups that are already verified if their verification is not outdated.", alias="ignore-verified")
 
     last_run_endtime: Optional[StrictInt] = Field(default=None, description="Endtime of the last run.", alias="last-run-endtime")
 
@@ -174,7 +174,7 @@ class AdminVerifyGetVerifyResponseDataInner(BaseModel):
         _obj = cls.model_validate({
             "comment": obj.get("comment"),
             "id": obj.get("id"),
-            "ignore-verified": obj.get("ignore-verified") if obj.get("ignore-verified") is not None else False,
+            "ignore-verified": obj.get("ignore-verified") if obj.get("ignore-verified") is not None else True,
             "last-run-endtime": obj.get("last-run-endtime"),
             "last-run-state": obj.get("last-run-state"),
             "last-run-upid": obj.get("last-run-upid"),

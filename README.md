@@ -29,7 +29,7 @@ from clientapi_pbs import Configuration, Pve
 
 cfg = Configuration(
     host='https://pbs1.example.com:8007/api2/json',
-    api_key={'Authorization': 'PBSAPIToken=user@realm!tokenid=uuid-secret'},
+    api_key={'Authorization': 'PBSAPIToken=user@realm!tokenid:uuid-secret'},
 )
 pbs = Pbs(configuration=cfg)
 
