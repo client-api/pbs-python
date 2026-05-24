@@ -70,7 +70,7 @@ class NodesNetworkCreateNetworkRequest(BaseModel):
 
     type: Optional[PbsNodesNetworkTypeEnum] = Field(default=None, description="Network interface type")
 
-    vlan_id: Optional[StrictInt] = Field(default=None, description="VLAN ID.", alias="vlan-id")
+    vlan_id: Optional[int] = Field(default=None, description="VLAN ID.", alias="vlan-id")
 
     vlan_raw_device: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=15)]] = Field(default=None, description="Network interface name.", alias="vlan-raw-device")
 

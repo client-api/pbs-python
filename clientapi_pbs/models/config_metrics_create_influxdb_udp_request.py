@@ -35,7 +35,7 @@ class ConfigMetricsCreateInfluxdbUdpRequest(BaseModel):
 
     host: Annotated[str, Field(strict=True)] = Field(description="host:port combination (Host can be DNS name or IP address).")
 
-    mtu: Optional[StrictInt] = Field(default=1500, description="The MTU")
+    mtu: Optional[int] = Field(default=1500, description="The MTU")
 
     name: Annotated[str, Field(min_length=3, strict=True, max_length=32)] = Field(description="Metrics Server ID.")
 

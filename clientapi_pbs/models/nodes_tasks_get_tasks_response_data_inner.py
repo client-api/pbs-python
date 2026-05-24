@@ -29,15 +29,15 @@ class NodesTasksGetTasksResponseDataInner(BaseModel):
     NodesTasksGetTasksResponseDataInner
     """ # noqa: E501
 
-    endtime: Optional[StrictInt] = Field(default=None, description="The task end time (Epoch)")
+    endtime: Optional[int] = Field(default=None, description="The task end time (Epoch)")
 
     node: StrictStr = Field(description="The node name where the task is running on.")
 
-    pid: StrictInt = Field(description="The Unix PID")
+    pid: int = Field(description="The Unix PID")
 
     pstart: Annotated[int, Field(strict=True, ge=0)] = Field(description="The task start time (Epoch)")
 
-    starttime: StrictInt = Field(description="The task start time (Epoch)")
+    starttime: int = Field(description="The task start time (Epoch)")
 
     status: Optional[StrictStr] = Field(default=None, description="Task end status")
 

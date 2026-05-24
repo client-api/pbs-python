@@ -51,11 +51,11 @@ class TapeDriveGetStatusResponseData(BaseModel):
 
     file_number: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Current file number", alias="file-number")
 
-    manufactured: Optional[StrictInt] = Field(default=None, description="Medium Manufacture Date (epoch)")
+    manufactured: Optional[int] = Field(default=None, description="Medium Manufacture Date (epoch)")
 
     medium_passes: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Count of the total number of times the medium has passed over the head.", alias="medium-passes")
 
-    medium_wearout: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Estimated tape wearout factor (assuming max. 16000 end-to-end passes)", alias="medium-wearout")
+    medium_wearout: Optional[Union[float, int]] = Field(default=None, description="Estimated tape wearout factor (assuming max. 16000 end-to-end passes)", alias="medium-wearout")
 
     product: StrictStr = Field(description="Product")
 

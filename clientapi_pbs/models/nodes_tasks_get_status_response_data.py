@@ -35,11 +35,11 @@ class NodesTasksGetStatusResponseData(BaseModel):
 
     node: Annotated[str, Field(strict=True)] = Field(description="Node name (or 'localhost')")
 
-    pid: StrictInt = Field(description="The Unix PID.")
+    pid: int = Field(description="The Unix PID.")
 
-    pstart: StrictInt = Field(description="The Unix process start time from `/proc/pid/stat`")
+    pstart: int = Field(description="The Unix process start time from `/proc/pid/stat`")
 
-    starttime: StrictInt = Field(description="The task start time (Epoch)")
+    starttime: int = Field(description="The task start time (Epoch)")
 
     status: StrictStr = Field(description="'running' or 'stopped'")
 

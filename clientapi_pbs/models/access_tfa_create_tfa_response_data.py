@@ -32,7 +32,7 @@ class AccessTfaCreateTfaResponseData(BaseModel):
 
     id: Optional[StrictStr] = Field(default=None, description="The id if a newly added TFA entry.")
 
-    recovery: List[StrictInt] = Field(description="A list of recovery codes as integers.")
+    recovery: List[int] = Field(description="A list of recovery codes as integers.")
 
     __properties: ClassVar[List[str]] = ["challenge", "id", "recovery"]
 

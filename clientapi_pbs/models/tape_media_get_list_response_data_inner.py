@@ -34,7 +34,7 @@ class TapeMediaGetListResponseDataInner(BaseModel):
 
     catalog: StrictBool = Field(description="Catalog status OK")
 
-    ctime: StrictInt = Field(description="Creation time stamp")
+    ctime: int = Field(description="Creation time stamp")
 
     expired: StrictBool = Field(description="Expired flag")
 
@@ -42,7 +42,7 @@ class TapeMediaGetListResponseDataInner(BaseModel):
 
     location: StrictStr = Field(description="Media location (e.g. 'offline', 'online-<changer_name>', 'vault-<vault_name>')")
 
-    media_set_ctime: Optional[StrictInt] = Field(default=None, description="MediaSet creation time stamp", alias="media-set-ctime")
+    media_set_ctime: Optional[int] = Field(default=None, description="MediaSet creation time stamp", alias="media-set-ctime")
 
     media_set_name: Optional[StrictStr] = Field(default=None, description="Media set name", alias="media-set-name")
 

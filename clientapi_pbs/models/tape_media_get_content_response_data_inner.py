@@ -29,11 +29,11 @@ class TapeMediaGetContentResponseDataInner(BaseModel):
     TapeMediaGetContentResponseDataInner
     """ # noqa: E501
 
-    backup_time: StrictInt = Field(description="Snapshot creation time (epoch)", alias="backup-time")
+    backup_time: int = Field(description="Snapshot creation time (epoch)", alias="backup-time")
 
     label_text: StrictStr = Field(description="Media label text (or Barcode)", alias="label-text")
 
-    media_set_ctime: StrictInt = Field(description="MediaSet Creation time stamp", alias="media-set-ctime")
+    media_set_ctime: int = Field(description="MediaSet Creation time stamp", alias="media-set-ctime")
 
     media_set_name: StrictStr = Field(description="Media set name", alias="media-set-name")
 

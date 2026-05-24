@@ -30,7 +30,7 @@ class ConfigTapeEncryptionKeysGetTapeEncryptionKeysResponseDataInner(BaseModel):
     ConfigTapeEncryptionKeysGetTapeEncryptionKeysResponseDataInner
     """ # noqa: E501
 
-    created: StrictInt = Field(description="Key creation time")
+    created: int = Field(description="Key creation time")
 
     fingerprint: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="X509 certificate fingerprint (sha256).")
 
@@ -38,7 +38,7 @@ class ConfigTapeEncryptionKeysGetTapeEncryptionKeysResponseDataInner(BaseModel):
 
     kdf: PbsKdfEnum = Field(description="Key derivation function for password protected encryption keys.")
 
-    modified: StrictInt = Field(description="Key modification time")
+    modified: int = Field(description="Key modification time")
 
     path: Optional[StrictStr] = Field(default=None, description="Path to key (if stored in a file)")
 

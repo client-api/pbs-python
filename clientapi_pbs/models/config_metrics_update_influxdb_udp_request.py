@@ -40,7 +40,7 @@ class ConfigMetricsUpdateInfluxdbUdpRequest(BaseModel):
 
     host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="host:port combination (Host can be DNS name or IP address).")
 
-    mtu: Optional[StrictInt] = Field(default=1500, description="The MTU")
+    mtu: Optional[int] = Field(default=1500, description="The MTU")
 
     __properties: ClassVar[List[str]] = ["comment", "delete", "digest", "enable", "host", "mtu"]
 

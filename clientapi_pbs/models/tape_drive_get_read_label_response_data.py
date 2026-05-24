@@ -29,13 +29,13 @@ class TapeDriveGetReadLabelResponseData(BaseModel):
     TapeDriveGetReadLabelResponseData
     """ # noqa: E501
 
-    ctime: StrictInt = Field(description="Creation time stamp")
+    ctime: int = Field(description="Creation time stamp")
 
     encryption_key_fingerprint: Optional[StrictStr] = Field(default=None, description="Encryption key fingerprint", alias="encryption-key-fingerprint")
 
     label_text: StrictStr = Field(description="Media label text (or Barcode)", alias="label-text")
 
-    media_set_ctime: Optional[StrictInt] = Field(default=None, description="MediaSet Creation time stamp", alias="media-set-ctime")
+    media_set_ctime: Optional[int] = Field(default=None, description="MediaSet Creation time stamp", alias="media-set-ctime")
 
     media_set_uuid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="MediaSet Uuid (We use the all-zero Uuid to reserve an empty media for a specific pool).", alias="media-set-uuid")
 

@@ -35,15 +35,15 @@ class NodesDisksGetSmartResponseDataAttributesInner(BaseModel):
 
     name: StrictStr = Field(description="Attribute name")
 
-    normalized: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="ATA normalized value (0..100)")
+    normalized: Optional[Union[float, int]] = Field(default=None, description="ATA normalized value (0..100)")
 
     raw: StrictStr = Field(description="Attribute raw value")
 
-    threshold: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="ATA threshold")
+    threshold: Optional[Union[float, int]] = Field(default=None, description="ATA threshold")
 
     value: StrictStr = Field(description="duplicate of raw - kept for API stability")
 
-    worst: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="ATA worst")
+    worst: Optional[Union[float, int]] = Field(default=None, description="ATA worst")
 
     __properties: ClassVar[List[str]] = ["flags", "id", "name", "normalized", "raw", "threshold", "value", "worst"]
 

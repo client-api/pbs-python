@@ -44,7 +44,7 @@ class ConfigRemoteUpdateRemoteRequest(BaseModel):
 
     password: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="Password or auth token for remote host.")
 
-    port: Optional[StrictInt] = Field(default=None, description="The (optional) port")
+    port: Optional[int] = Field(default=None, description="The (optional) port")
 
     use_node_proxy: Optional[StrictBool] = Field(default=False, description="Use the http proxy configuration of the node for remote connections.", alias="use-node-proxy")
 

@@ -31,7 +31,7 @@ class NodesDisksGetZfsResponseDataInner(BaseModel):
 
     alloc: Annotated[int, Field(strict=True, ge=0)] = Field(description="Used size")
 
-    dedup: Union[StrictFloat, StrictInt] = Field(description="ZFS deduplication ratio")
+    dedup: Union[float, int] = Field(description="ZFS deduplication ratio")
 
     frag: Annotated[int, Field(strict=True, ge=0)] = Field(description="ZFS fragnentation level")
 

@@ -57,7 +57,7 @@ class NodesDisksGetListResponseDataInner(BaseModel):
 
     vendor: Optional[StrictStr] = Field(default=None, description="Vendor")
 
-    wearout: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk wearout")
+    wearout: Optional[Union[float, int]] = Field(default=None, description="Disk wearout")
 
     wwn: Optional[StrictStr] = Field(default=None, description="WWN")
 

@@ -36,17 +36,17 @@ class AdminDatastoreGetGcResponseData(BaseModel):
 
     disk_chunks: Annotated[int, Field(strict=True, ge=0)] = Field(description="Chunks used on disk.", alias="disk-chunks")
 
-    duration: Optional[StrictInt] = Field(default=None, description="Duration of last gc run")
+    duration: Optional[int] = Field(default=None, description="Duration of last gc run")
 
     index_data_bytes: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sum of bytes referred by index files.", alias="index-data-bytes")
 
     index_file_count: Annotated[int, Field(strict=True, ge=0)] = Field(description="Number of processed index files.", alias="index-file-count")
 
-    last_run_endtime: Optional[StrictInt] = Field(default=None, description="Endtime of the last gc run", alias="last-run-endtime")
+    last_run_endtime: Optional[int] = Field(default=None, description="Endtime of the last gc run", alias="last-run-endtime")
 
     last_run_state: Optional[StrictStr] = Field(default=None, description="State of the last gc run", alias="last-run-state")
 
-    next_run: Optional[StrictInt] = Field(default=None, description="Time of the next gc run", alias="next-run")
+    next_run: Optional[int] = Field(default=None, description="Time of the next gc run", alias="next-run")
 
     pending_bytes: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sum of pending bytes (pending removal - kept for safety).", alias="pending-bytes")
 

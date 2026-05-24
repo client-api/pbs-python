@@ -42,7 +42,7 @@ class AccessUsersGetUsersResponseDataInner(BaseModel):
 
     lastname: Optional[Annotated[str, Field(min_length=2, strict=True, max_length=64)]] = Field(default=None, description="Last name.")
 
-    tfa_locked_until: Optional[StrictInt] = Field(default=None, description="Contains a timestamp until when a user is locked out of 2nd factors", alias="tfa-locked-until")
+    tfa_locked_until: Optional[int] = Field(default=None, description="Contains a timestamp until when a user is locked out of 2nd factors", alias="tfa-locked-until")
 
     tokens: Optional[List[AccessUsersGetUsersResponseDataInnerTokensInner]] = Field(default=None, description="List of user's API tokens.")
 

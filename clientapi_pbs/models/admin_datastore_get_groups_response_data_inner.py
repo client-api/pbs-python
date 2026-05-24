@@ -30,7 +30,7 @@ class AdminDatastoreGetGroupsResponseDataInner(BaseModel):
     AdminDatastoreGetGroupsResponseDataInner
     """ # noqa: E501
 
-    backup_count: StrictInt = Field(description="Number of contained snapshots", alias="backup-count")
+    backup_count: int = Field(description="Number of contained snapshots", alias="backup-count")
 
     backup_id: Annotated[str, Field(strict=True)] = Field(description="Backup ID.", alias="backup-id")
 

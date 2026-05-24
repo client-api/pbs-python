@@ -35,7 +35,7 @@ class AdminVerifyGetVerifyResponseDataInner(BaseModel):
 
     ignore_verified: Optional[StrictBool] = Field(default=True, description="Do not verify backups that are already verified if their verification is not outdated.", alias="ignore-verified")
 
-    last_run_endtime: Optional[StrictInt] = Field(default=None, description="Endtime of the last run.", alias="last-run-endtime")
+    last_run_endtime: Optional[int] = Field(default=None, description="Endtime of the last run.", alias="last-run-endtime")
 
     last_run_state: Optional[StrictStr] = Field(default=None, description="Result of the last run.", alias="last-run-state")
 
@@ -43,7 +43,7 @@ class AdminVerifyGetVerifyResponseDataInner(BaseModel):
 
     max_depth: Optional[Annotated[int, Field(le=7, strict=True, ge=0)]] = Field(default=7, description="How many levels of namespaces should be operated on (0 == no recursion)", alias="max-depth")
 
-    next_run: Optional[StrictInt] = Field(default=None, description="Estimated time of the next run (UNIX epoch).", alias="next-run")
+    next_run: Optional[int] = Field(default=None, description="Estimated time of the next run (UNIX epoch).", alias="next-run")
 
     ns: Optional[Annotated[str, Field(strict=True, max_length=256)]] = Field(default=None, description="Namespace.")
 

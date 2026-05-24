@@ -39,7 +39,7 @@ class ConfigRemoteGetRemoteResponseDataInner(BaseModel):
 
     name: Annotated[str, Field(min_length=3, strict=True, max_length=32)] = Field(description="Remote ID.")
 
-    port: Optional[StrictInt] = Field(default=None, description="The (optional) port")
+    port: Optional[int] = Field(default=None, description="The (optional) port")
 
     use_node_proxy: Optional[StrictBool] = Field(default=False, description="Use the http proxy configuration of the node for remote connections.", alias="use-node-proxy")
 

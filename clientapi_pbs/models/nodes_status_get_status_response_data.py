@@ -38,7 +38,7 @@ class NodesStatusGetStatusResponseData(BaseModel):
 
     boot_info: NodesStatusGetStatusResponseDataBootInfo = Field(alias="boot-info")
 
-    cpu: Union[StrictFloat, StrictInt] = Field(description="Total CPU usage since last query.")
+    cpu: Union[float, int] = Field(description="Total CPU usage since last query.")
 
     cpuinfo: NodesStatusGetStatusResponseDataCpuinfo
 
@@ -48,7 +48,7 @@ class NodesStatusGetStatusResponseData(BaseModel):
 
     kversion: StrictStr = Field(description="The current kernel version (LEGACY string type).")
 
-    loadavg: List[Union[StrictFloat, StrictInt]] = Field(description="Load for 1, 5 and 15 minutes.")
+    loadavg: List[Union[float, int]] = Field(description="Load for 1, 5 and 15 minutes.")
 
     memory: NodesStatusGetStatusResponseDataMemory
 
@@ -58,7 +58,7 @@ class NodesStatusGetStatusResponseData(BaseModel):
 
     uptime: Annotated[int, Field(strict=True, ge=0)] = Field(description="The current uptime of the server.")
 
-    wait: Union[StrictFloat, StrictInt] = Field(description="Total IO wait since last query.")
+    wait: Union[float, int] = Field(description="Total IO wait since last query.")
 
     __properties: ClassVar[List[str]] = ["boot-info", "cpu", "cpuinfo", "current-kernel", "info", "kversion", "loadavg", "memory", "root", "swap", "uptime", "wait"]
 

@@ -29,7 +29,7 @@ class TapeMediaGetMediaSetsResponseDataInner(BaseModel):
     TapeMediaGetMediaSetsResponseDataInner
     """ # noqa: E501
 
-    media_set_ctime: StrictInt = Field(description="MediaSet creation time stamp", alias="media-set-ctime")
+    media_set_ctime: int = Field(description="MediaSet creation time stamp", alias="media-set-ctime")
 
     media_set_name: StrictStr = Field(description="Media set name", alias="media-set-name")
 

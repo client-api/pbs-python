@@ -29,7 +29,7 @@ class NodesSubscriptionGetSubscriptionResponseData(BaseModel):
     NodesSubscriptionGetSubscriptionResponseData
     """ # noqa: E501
 
-    checktime: Optional[StrictInt] = Field(default=None, description="timestamp of the last check done")
+    checktime: Optional[int] = Field(default=None, description="timestamp of the last check done")
 
     key: Optional[StrictStr] = Field(default=None, description="the subscription key, if set and permitted to access")
 

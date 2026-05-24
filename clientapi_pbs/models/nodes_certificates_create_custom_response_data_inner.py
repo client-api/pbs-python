@@ -35,9 +35,9 @@ class NodesCertificatesCreateCustomResponseDataInner(BaseModel):
 
     issuer: StrictStr = Field(description="Certificate issuer name.")
 
-    notafter: Optional[StrictInt] = Field(default=None, description="Certificate's notAfter timestamp (UNIX epoch).")
+    notafter: Optional[int] = Field(default=None, description="Certificate's notAfter timestamp (UNIX epoch).")
 
-    notbefore: Optional[StrictInt] = Field(default=None, description="Certificate's notBefore timestamp (UNIX epoch).")
+    notbefore: Optional[int] = Field(default=None, description="Certificate's notBefore timestamp (UNIX epoch).")
 
     pem: Optional[StrictStr] = Field(default=None, description="Certificate in PEM format.")
 

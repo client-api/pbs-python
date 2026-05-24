@@ -31,7 +31,7 @@ class AccessTfaGetTfaResponseDataInner(BaseModel):
 
     entries: List[AccessTfaGetTfaResponseDataInnerEntriesInner] = Field(description="TFA entries.")
 
-    tfa_locked_until: Optional[StrictInt] = Field(default=None, description="If a user's second factor is blocked, this contains the block's expiration time.", alias="tfa-locked-until")
+    tfa_locked_until: Optional[int] = Field(default=None, description="If a user's second factor is blocked, this contains the block's expiration time.", alias="tfa-locked-until")
 
     totp_locked: StrictBool = Field(description="The user is locked out of TOTP authentication.", alias="totp-locked")
 

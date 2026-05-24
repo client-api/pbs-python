@@ -33,7 +33,7 @@ class NodesAptCreateRepositoriesRequest(BaseModel):
 
     enabled: Optional[StrictBool] = Field(default=None, description="Whether the repository should be enabled or not.")
 
-    index: StrictInt = Field(description="Index within the file (starting from 0).")
+    index: int = Field(description="Index within the file (starting from 0).")
 
     path: StrictStr = Field(description="Path to the containing file.")
 

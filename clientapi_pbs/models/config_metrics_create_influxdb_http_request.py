@@ -35,7 +35,7 @@ class ConfigMetricsCreateInfluxdbHttpRequest(BaseModel):
 
     enable: Optional[StrictBool] = Field(default=True, description="Enables or disables the metrics server")
 
-    max_body_size: Optional[StrictInt] = Field(default=25000000, description="The (optional) maximum body size", alias="max-body-size")
+    max_body_size: Optional[int] = Field(default=25000000, description="The (optional) maximum body size", alias="max-body-size")
 
     name: Annotated[str, Field(min_length=3, strict=True, max_length=32)] = Field(description="Metrics Server ID.")
 

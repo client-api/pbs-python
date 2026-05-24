@@ -38,11 +38,11 @@ class StatusGetDatastoreUsageResponseDataInner(BaseModel):
 
     error: Optional[StrictStr] = Field(default=None, description="An error description, for example, when the datastore could not be looked up")
 
-    estimated_full_date: Optional[StrictInt] = Field(default=None, description="Estimation of the UNIX epoch when the storage will be full. It's calculated via a simple Linear Regression (Least Squares) over the RRD data of the last Month. Missing if not enough data points are available yet. An estimate in the past means that usage is declining or not changing.", alias="estimated-full-date")
+    estimated_full_date: Optional[int] = Field(default=None, description="Estimation of the UNIX epoch when the storage will be full. It's calculated via a simple Linear Regression (Least Squares) over the RRD data of the last Month. Missing if not enough data points are available yet. An estimate in the past means that usage is declining or not changing.", alias="estimated-full-date")
 
     gc_status: Optional[AdminDatastoreGetStatusResponseDataGcStatus] = Field(default=None, alias="gc-status")
 
-    history: Optional[List[Union[StrictFloat, StrictInt]]] = Field(default=None, description="A list of usages of the past (last Month).")
+    history: Optional[List[Union[float, int]]] = Field(default=None, description="A list of usages of the past (last Month).")
 
     history_delta: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="History resolution (seconds)", alias="history-delta")
 

@@ -44,11 +44,11 @@ class ConfigS3GetS3ResponseDataInner(BaseModel):
 
     path_style: Optional[StrictBool] = Field(default=False, description="Use path style bucket addressing over vhost style.", alias="path-style")
 
-    port: Optional[StrictInt] = Field(default=None, description="Port to access S3 object store.")
+    port: Optional[int] = Field(default=None, description="Port to access S3 object store.")
 
     provider_quirks: Optional[List[PbsProviderQuirksEnum]] = Field(default=None, description="List of provider specific feature implementation quirks.", alias="provider-quirks")
 
-    put_rate_limit: Optional[StrictInt] = Field(default=None, description="Rate limit for put requests given as #request/s.", alias="put-rate-limit")
+    put_rate_limit: Optional[int] = Field(default=None, description="Rate limit for put requests given as #request/s.", alias="put-rate-limit")
 
     rate_in: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=64)]] = Field(default=None, description="Byte size with optional unit (B, KB (base 10), MB, GB, ..., KiB (base 2), MiB, Gib, ...).", alias="rate-in")
 

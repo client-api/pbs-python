@@ -28,7 +28,7 @@ class NodesCreateTermproxyResponseData(BaseModel):
     NodesCreateTermproxyResponseData
     """ # noqa: E501
 
-    port: StrictInt = Field(description="port used to bind termproxy to")
+    port: int = Field(description="port used to bind termproxy to")
 
     ticket: StrictStr = Field(description="ticket used to verifiy websocket connection")
 

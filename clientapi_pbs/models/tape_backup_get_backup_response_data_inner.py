@@ -42,7 +42,7 @@ class TapeBackupGetBackupResponseDataInner(BaseModel):
 
     id: Annotated[str, Field(min_length=3, strict=True, max_length=32)] = Field(description="Job ID.")
 
-    last_run_endtime: Optional[StrictInt] = Field(default=None, description="Endtime of the last run.", alias="last-run-endtime")
+    last_run_endtime: Optional[int] = Field(default=None, description="Endtime of the last run.", alias="last-run-endtime")
 
     last_run_state: Optional[StrictStr] = Field(default=None, description="Result of the last run.", alias="last-run-state")
 
@@ -54,7 +54,7 @@ class TapeBackupGetBackupResponseDataInner(BaseModel):
 
     next_media_label: Optional[StrictStr] = Field(default=None, description="Next tape used (best guess)", alias="next-media-label")
 
-    next_run: Optional[StrictInt] = Field(default=None, description="Estimated time of the next run (UNIX epoch).", alias="next-run")
+    next_run: Optional[int] = Field(default=None, description="Estimated time of the next run (UNIX epoch).", alias="next-run")
 
     notification_mode: Optional[PbsNotificationModeEnum] = Field(default=None, description="Configure how notifications for this datastore should be sent. `legacy-sendmail` sends email notifications to the user configured in `notify-user` via the system's `sendmail` executable. `notification-system` emits matchable notification events to the notification system.", alias="notification-mode")
 

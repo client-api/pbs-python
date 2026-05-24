@@ -46,7 +46,7 @@ class AdminSyncGetSyncResponseDataInner(BaseModel):
 
     id: Annotated[str, Field(min_length=3, strict=True, max_length=32)] = Field(description="Job ID.")
 
-    last_run_endtime: Optional[StrictInt] = Field(default=None, description="Endtime of the last run.", alias="last-run-endtime")
+    last_run_endtime: Optional[int] = Field(default=None, description="Endtime of the last run.", alias="last-run-endtime")
 
     last_run_state: Optional[StrictStr] = Field(default=None, description="Result of the last run.", alias="last-run-state")
 
@@ -54,7 +54,7 @@ class AdminSyncGetSyncResponseDataInner(BaseModel):
 
     max_depth: Optional[Annotated[int, Field(le=7, strict=True, ge=0)]] = Field(default=None, description="How many levels of namespaces should be operated on (0 == no recursion, empty == automatic full recursion, namespace depths reduce maximum allowed value)", alias="max-depth")
 
-    next_run: Optional[StrictInt] = Field(default=None, description="Estimated time of the next run (UNIX epoch).", alias="next-run")
+    next_run: Optional[int] = Field(default=None, description="Estimated time of the next run (UNIX epoch).", alias="next-run")
 
     ns: Optional[Annotated[str, Field(strict=True, max_length=256)]] = Field(default=None, description="Namespace.")
 

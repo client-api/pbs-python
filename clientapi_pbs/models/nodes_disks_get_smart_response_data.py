@@ -34,7 +34,7 @@ class NodesDisksGetSmartResponseData(BaseModel):
 
     status: PbsStatusEnum = Field(description="SMART status")
 
-    wearout: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Wearout level.")
+    wearout: Optional[Union[float, int]] = Field(default=None, description="Wearout level.")
 
     __properties: ClassVar[List[str]] = ["attributes", "status", "wearout"]
 
