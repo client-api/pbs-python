@@ -63,8 +63,8 @@ class ConfigMetricsUpdateInfluxdbHttpRequest(BaseModel):
         if not isinstance(value, str):
             value = str(value)
 
-        if not re.match(r"^[[:^cntrl:]]*$", value):
-            raise ValueError(r"must validate the regular expression /^[[:^cntrl:]]*$/")
+        if not re.match(r"^[^\x00-\x1f\x7f]*$", value):
+            raise ValueError(r"must validate the regular expression /^[^\x00-\x1f\x7f]*$/")
         return value
 
 

@@ -55,8 +55,8 @@ class AccessUsersGetAccessUsersByUseridResponseData(BaseModel):
         if not isinstance(value, str):
             value = str(value)
 
-        if not re.match(r"^[[:^cntrl:]]*$", value):
-            raise ValueError(r"must validate the regular expression /^[[:^cntrl:]]*$/")
+        if not re.match(r"^[^\x00-\x1f\x7f]*$", value):
+            raise ValueError(r"must validate the regular expression /^[^\x00-\x1f\x7f]*$/")
         return value
 
 
@@ -69,8 +69,8 @@ class AccessUsersGetAccessUsersByUseridResponseData(BaseModel):
         if not isinstance(value, str):
             value = str(value)
 
-        if not re.match(r"^[[:^cntrl:]]*$", value):
-            raise ValueError(r"must validate the regular expression /^[[:^cntrl:]]*$/")
+        if not re.match(r"^[^\x00-\x1f\x7f]*$", value):
+            raise ValueError(r"must validate the regular expression /^[^\x00-\x1f\x7f]*$/")
         return value
 
 
@@ -85,8 +85,8 @@ class AccessUsersGetAccessUsersByUseridResponseData(BaseModel):
         if not isinstance(value, str):
             value = str(value)
 
-        if not re.match(r"^[[:^cntrl:]]*$", value):
-            raise ValueError(r"must validate the regular expression /^[[:^cntrl:]]*$/")
+        if not re.match(r"^[^\x00-\x1f\x7f]*$", value):
+            raise ValueError(r"must validate the regular expression /^[^\x00-\x1f\x7f]*$/")
         return value
 
 
@@ -99,8 +99,8 @@ class AccessUsersGetAccessUsersByUseridResponseData(BaseModel):
         if not isinstance(value, str):
             value = str(value)
 
-        if not re.match(r"^[[:^cntrl:]]*$", value):
-            raise ValueError(r"must validate the regular expression /^[[:^cntrl:]]*$/")
+        if not re.match(r"^[^\x00-\x1f\x7f]*$", value):
+            raise ValueError(r"must validate the regular expression /^[^\x00-\x1f\x7f]*$/")
         return value
 
 
@@ -110,8 +110,8 @@ class AccessUsersGetAccessUsersByUseridResponseData(BaseModel):
         if not isinstance(value, str):
             value = str(value)
 
-        if not re.match(r"^(?:[^\s:/[:cntrl:]]+)@(?:[A-Za-z0-9_][A-Za-z0-9._\-]*)$", value):
-            raise ValueError(r"must validate the regular expression /^(?:[^\s:/[:cntrl:]]+)@(?:[A-Za-z0-9_][A-Za-z0-9._\-]*)$/")
+        if not re.match(r"^(?:[^\s:/\x00-\x1f\x7f]+)@(?:[A-Za-z0-9_][A-Za-z0-9._\-]*)$", value):
+            raise ValueError(r"must validate the regular expression /^(?:[^\s:/\x00-\x1f\x7f]+)@(?:[A-Za-z0-9_][A-Za-z0-9._\-]*)$/")
         return value
 
 
